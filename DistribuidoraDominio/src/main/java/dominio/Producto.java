@@ -38,6 +38,9 @@ public class Producto {
     @Column(name = "cantidad")
     private Integer cantidad;
     
+    @Column(name = "cantidad_apartada")
+    private Integer cantidadApartada;
+    
     @Column(name = "precio")
     private double precio;    
 
@@ -77,6 +80,14 @@ public class Producto {
         this.precio = precio;
         this.pedidosProductos = pedidosProductos;
     }
+
+    public Producto(String nombre, Integer cantidad, Integer cantidadApartada, double precio) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.cantidadApartada = cantidadApartada;
+        this.precio = precio;
+    }
+    
 
     public Integer getId() {
         return id;
@@ -121,6 +132,16 @@ public class Producto {
     public void setPedidosProductos(List<PedidoProducto> pedidosProductos) {
         this.pedidosProductos = pedidosProductos;
     }
+
+    public Integer getCantidadApartada() {
+        return cantidadApartada;
+    }
+
+    public void setCantidadApartada(Integer cantidadApartada) {
+        this.cantidadApartada = cantidadApartada;
+    }
+    
+    
 
     @Override
     public int hashCode() {
