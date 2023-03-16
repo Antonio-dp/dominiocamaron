@@ -35,6 +35,12 @@ public class Pedido {
 
     @Column(name = "precio_total")
     private double precioTotal;
+    
+    @Column(name = "fecha_entrega")
+    private Calendar fecha;
+    
+    @Column(name = "precio_total")
+    private String lugarEntrega;
 
     @OneToMany(fetch = FetchType.EAGER, cascade ={CascadeType.PERSIST, CascadeType.DETACH}, mappedBy="id")
     private List<PedidoProducto> pedidosProducto;
@@ -73,6 +79,13 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    public Pedido(double precioTotal, Calendar fecha, String lugarEntrega) {
+        this.precioTotal = precioTotal;
+        this.fecha = fecha;
+        this.lugarEntrega = lugarEntrega;
+    }
+    
+
     public Integer getId() {
         return id;
     }
@@ -108,6 +121,23 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public Calendar getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Calendar fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getLugarEntrega() {
+        return lugarEntrega;
+    }
+
+    public void setLugarEntrega(String lugarEntrega) {
+        this.lugarEntrega = lugarEntrega;
+    }
+    
 
     @Override
     public int hashCode() {
